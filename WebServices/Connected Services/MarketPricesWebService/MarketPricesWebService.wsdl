@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MarketPricesWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Xml" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMarketPricesWebService_AddBrokerOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBrokerOrder" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddBrokerOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBrokerOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddBrokerProductDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBrokerProductDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddBrokerProductDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBrokerProductDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddNordpoolPublicTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNordpoolPublicTrade" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddNordpoolPublicTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNordpoolPublicTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddNordpoolDayAheadTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNordpoolDayAheadTrade" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddNordpoolDayAheadTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNordpoolDayAheadTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddEtrmEtsPublicTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEtrmEtsPublicTrade" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddEtrmEtsPublicTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEtrmEtsPublicTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddEtrmM7PublicTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEtrmM7PublicTrade" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddEtrmM7PublicTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEtrmM7PublicTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportSequenceItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportSequenceItems" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportSequenceItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportSequenceItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportPublicTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportPublicTrade" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportPublicTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportPublicTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportPublicOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportPublicOrder" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPricesWebService_AddTrayportPublicOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTrayportPublicOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMarketPricesWebService">
+    <wsdl:operation name="AddBrokerOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddBrokerOrder" message="tns:IMarketPricesWebService_AddBrokerOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddBrokerOrderResponse" message="tns:IMarketPricesWebService_AddBrokerOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBrokerProductDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddBrokerProductDetails" message="tns:IMarketPricesWebService_AddBrokerProductDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddBrokerProductDetailsResponse" message="tns:IMarketPricesWebService_AddBrokerProductDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNordpoolPublicTrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddNordpoolPublicTrade" message="tns:IMarketPricesWebService_AddNordpoolPublicTrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddNordpoolPublicTradeResponse" message="tns:IMarketPricesWebService_AddNordpoolPublicTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNordpoolDayAheadTrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddNordpoolDayAheadTrade" message="tns:IMarketPricesWebService_AddNordpoolDayAheadTrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddNordpoolDayAheadTradeResponse" message="tns:IMarketPricesWebService_AddNordpoolDayAheadTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEtrmEtsPublicTrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddEtrmEtsPublicTrade" message="tns:IMarketPricesWebService_AddEtrmEtsPublicTrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddEtrmEtsPublicTradeResponse" message="tns:IMarketPricesWebService_AddEtrmEtsPublicTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEtrmM7PublicTrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddEtrmM7PublicTrade" message="tns:IMarketPricesWebService_AddEtrmM7PublicTrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddEtrmM7PublicTradeResponse" message="tns:IMarketPricesWebService_AddEtrmM7PublicTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportSequenceItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportSequenceItems" message="tns:IMarketPricesWebService_AddTrayportSequenceItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportSequenceItemsResponse" message="tns:IMarketPricesWebService_AddTrayportSequenceItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportPublicTrade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicTrade" message="tns:IMarketPricesWebService_AddTrayportPublicTrade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicTradeResponse" message="tns:IMarketPricesWebService_AddTrayportPublicTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportPublicOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicOrder" message="tns:IMarketPricesWebService_AddTrayportPublicOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicOrderResponse" message="tns:IMarketPricesWebService_AddTrayportPublicOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMarketPricesWebService" type="tns:IMarketPricesWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBrokerOrder">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddBrokerOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBrokerProductDetails">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddBrokerProductDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNordpoolPublicTrade">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddNordpoolPublicTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNordpoolDayAheadTrade">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddNordpoolDayAheadTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEtrmEtsPublicTrade">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddEtrmEtsPublicTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEtrmM7PublicTrade">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddEtrmM7PublicTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportSequenceItems">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddTrayportSequenceItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportPublicTrade">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTrayportPublicOrder">
+      <soap:operation soapAction="http://tempuri.org/IMarketPricesWebService/AddTrayportPublicOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MarketPricesWebService">
+    <wsdl:port name="BasicHttpBinding_IMarketPricesWebService" binding="tns:BasicHttpBinding_IMarketPricesWebService">
+      <soap:address location="http://localhost:38603/MarketPricesWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

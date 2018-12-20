@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="018a145c-4433-43e9-94c9-edbb483e0ca3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:38603/MarketPricesWebService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MarketPricesWebService.wsdl" MetadataType="Wsdl" ID="88975d66-a573-44ae-9ec0-bf6a56a01847" SourceId="1" SourceUrl="http://localhost:38603/MarketPricesWebService.svc?wsdl" />
+    <MetadataFile FileName="MarketPricesWebService.xsd" MetadataType="Schema" ID="e6dd84e8-1c21-4760-845f-7782fd28deaa" SourceId="1" SourceUrl="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MarketPricesWebService1.xsd" MetadataType="Schema" ID="dfeee88c-6d91-4756-8593-dfff804d75a3" SourceId="1" SourceUrl="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MarketPricesWebService2.xsd" MetadataType="Schema" ID="86ff2b7d-cbbd-4323-971d-89eed56205c5" SourceId="1" SourceUrl="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MarketPricesWebService3.xsd" MetadataType="Schema" ID="ca405156-c834-4845-84c3-70e619838af7" SourceId="1" SourceUrl="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

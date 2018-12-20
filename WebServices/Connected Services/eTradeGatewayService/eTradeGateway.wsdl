@@ -1,0 +1,1971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://drax.power/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s2="http://drax.power/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://drax.power/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://drax.power/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetZAINETData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZAINETNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZAINETDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetZAINETDataResult" type="tns:udtTabletTradeDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="udtTabletTradeDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalTNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Counterparty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CounterpartyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Broker" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BrokerID" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="Brokarage" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Trader" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExecuteTrader" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BlockName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuySell" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="TradeDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DStamp" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TStamp" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DefaultDirection" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VolumeMWh" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuyReason" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="Days" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeriodVolume" type="tns:ArrayOfDouble" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bespoke" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="XKey" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDouble">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="double" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestAuthentication">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestAuthenticationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFromAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strToAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBodyText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lngSystemID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEmailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTabletTrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TradeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTrader" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCreatedBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TradeDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuyOrSell" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="CounterParty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CounterpartyTrader" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Shape" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BespokeShape" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BespokeStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="BespokeEndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="cBroker" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="bBiLateral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="BiLateralTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="BiLateralExtension" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bZeroBrokerage" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZAINETnum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bTStamp" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BackOfficeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="BackOfficeComments" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cBuyReason" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="blIncludeWeekends" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vTest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTabletTradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddTabletTradeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMultiDayShapeTrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TradeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTrader" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCreatedBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TradeDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="BuyOrSell" type="s1:char" />
+            <s:element minOccurs="0" maxOccurs="1" name="CounterParty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CounterpartyTrader" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Shape" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BespokeShape" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="BespokeStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="BespokeEndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="cBroker" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="bBiLateral" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="BiLateralTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="BiLateralExtension" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bZeroBrokerage" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZAINETnum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bTStamp" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BackOfficeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="BackOfficeComments" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cBuyReason" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="blIncludeWeekends" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="vTest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMultiDayShapeTradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMultiDayShapeTradeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTableTrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TradeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vTest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTableTradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTableTradeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteETradeForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="List" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vTest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteETradeFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteETradeFormResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmailAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmailAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmailAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShapes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetShapesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShapesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TradeExist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="v_ZainetTnum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TradeExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TradeExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpShape">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Shortcut" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpShapeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LookUpShapeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCounterparties">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCounterpartiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCounterpartiesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpCounterparty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Shortcut" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpCounterpartyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LookUpCounterpartyResult" type="tns:udtCounterparty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="udtCounterparty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZainetId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LookUpZainetCounterparty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Shortcut" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpZainetCounterpartyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LookUpZainetCounterpartyResult" type="tns:udtCounterparty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpCounterpartyTrader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TradeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Counterparty" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LookUpCounterpartyTraderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LookUpCounterpartyTraderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCounterpartyLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TradeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Counterparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TraderName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCounterpartyLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCounterpartyLookupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAuditLogEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAuditLogEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAuditLogEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifierAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vCPTY" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NotifierAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotifierAccountsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DefaultNotifier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vCPTY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DefaultNotifierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DefaultNotifierResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="udtTabletTradeDetails" type="tns:udtTabletTradeDetails" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="udtCounterparty" type="tns:udtCounterparty" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema targetNamespace="http://drax.power/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetZAINETDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetZAINETData" />
+  </wsdl:message>
+  <wsdl:message name="GetZAINETDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetZAINETDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:TestAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:TestAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTabletTrade" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTabletTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMultiDayShapeTrade" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMultiDayShapeTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTableTrade" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTableTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteETradeForm" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteETradeFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShapesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShapes" />
+  </wsdl:message>
+  <wsdl:message name="GetShapesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShapesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistSoapIn">
+    <wsdl:part name="parameters" element="tns:TradeExist" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistSoapOut">
+    <wsdl:part name="parameters" element="tns:TradeExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeSoapIn">
+    <wsdl:part name="parameters" element="tns:LookUpShape" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeSoapOut">
+    <wsdl:part name="parameters" element="tns:LookUpShapeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterpartiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCounterparties" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterpartiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCounterpartiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartySoapIn">
+    <wsdl:part name="parameters" element="tns:LookUpCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartySoapOut">
+    <wsdl:part name="parameters" element="tns:LookUpCounterpartyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartySoapIn">
+    <wsdl:part name="parameters" element="tns:LookUpZainetCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartySoapOut">
+    <wsdl:part name="parameters" element="tns:LookUpZainetCounterpartyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderSoapIn">
+    <wsdl:part name="parameters" element="tns:LookUpCounterpartyTrader" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderSoapOut">
+    <wsdl:part name="parameters" element="tns:LookUpCounterpartyTraderResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCounterpartyLookup" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCounterpartyLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:AddAuditLogEntry" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:AddAuditLogEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:NotifierAccounts" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:NotifierAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierSoapIn">
+    <wsdl:part name="parameters" element="tns:DefaultNotifier" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierSoapOut">
+    <wsdl:part name="parameters" element="tns:DefaultNotifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetZAINETDataHttpGetIn">
+    <wsdl:part name="ZAINETNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetZAINETDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:udtTabletTradeDetails" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthenticationHttpGetIn" />
+  <wsdl:message name="TestAuthenticationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailHttpGetIn">
+    <wsdl:part name="strFromAddress" type="s:string" />
+    <wsdl:part name="strToAddress" type="s:string" />
+    <wsdl:part name="strSubject" type="s:string" />
+    <wsdl:part name="strBodyText" type="s:string" />
+    <wsdl:part name="lngSystemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeHttpGetIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="sTrader" type="s:string" />
+    <wsdl:part name="sCreatedBy" type="s:string" />
+    <wsdl:part name="TradeDate" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="Volume" type="s:string" />
+    <wsdl:part name="Price" type="s:string" />
+    <wsdl:part name="BuyOrSell" type="s:string" />
+    <wsdl:part name="CounterParty" type="s:string" />
+    <wsdl:part name="CounterpartyTrader" type="s:string" />
+    <wsdl:part name="Shape" type="s:string" />
+    <wsdl:part name="BespokeShape" type="s:string" />
+    <wsdl:part name="BespokeStartDate" type="s:string" />
+    <wsdl:part name="BespokeEndDate" type="s:string" />
+    <wsdl:part name="cBroker" type="s:string" />
+    <wsdl:part name="bBiLateral" type="s:string" />
+    <wsdl:part name="BiLateralTime" type="s:string" />
+    <wsdl:part name="BiLateralExtension" type="s:string" />
+    <wsdl:part name="bZeroBrokerage" type="s:string" />
+    <wsdl:part name="ZAINETnum" type="s:string" />
+    <wsdl:part name="bTStamp" type="s:string" />
+    <wsdl:part name="Comments" type="s:string" />
+    <wsdl:part name="BackOfficeID" type="s:string" />
+    <wsdl:part name="BackOfficeComments" type="s:string" />
+    <wsdl:part name="cBuyReason" type="s:string" />
+    <wsdl:part name="blIncludeWeekends" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeHttpGetIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="sTrader" type="s:string" />
+    <wsdl:part name="sCreatedBy" type="s:string" />
+    <wsdl:part name="TradeDate" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="Volume" type="s:string" />
+    <wsdl:part name="Price" type="s:string" />
+    <wsdl:part name="BuyOrSell" type="s:string" />
+    <wsdl:part name="CounterParty" type="s:string" />
+    <wsdl:part name="CounterpartyTrader" type="s:string" />
+    <wsdl:part name="Shape" type="s:string" />
+    <wsdl:part name="BespokeShape" type="s2:StringArray" />
+    <wsdl:part name="BespokeStartDate" type="s:string" />
+    <wsdl:part name="BespokeEndDate" type="s:string" />
+    <wsdl:part name="cBroker" type="s:string" />
+    <wsdl:part name="bBiLateral" type="s:string" />
+    <wsdl:part name="BiLateralTime" type="s:string" />
+    <wsdl:part name="BiLateralExtension" type="s:string" />
+    <wsdl:part name="bZeroBrokerage" type="s:string" />
+    <wsdl:part name="ZAINETnum" type="s:string" />
+    <wsdl:part name="bTStamp" type="s:string" />
+    <wsdl:part name="Comments" type="s:string" />
+    <wsdl:part name="BackOfficeID" type="s:string" />
+    <wsdl:part name="BackOfficeComments" type="s:string" />
+    <wsdl:part name="cBuyReason" type="s:string" />
+    <wsdl:part name="blIncludeWeekends" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeHttpGetIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormHttpGetIn">
+    <wsdl:part name="List" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpGetIn" />
+  <wsdl:message name="GetUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeHttpGetIn">
+    <wsdl:part name="User" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressHttpGetIn">
+    <wsdl:part name="User" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShapesHttpGetIn" />
+  <wsdl:message name="GetShapesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistHttpGetIn">
+    <wsdl:part name="v_ZainetTnum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeHttpGetIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterpartiesHttpGetIn" />
+  <wsdl:message name="GetCounterpartiesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyHttpGetIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyHttpGetOut">
+    <wsdl:part name="Body" element="tns:udtCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartyHttpGetIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartyHttpGetOut">
+    <wsdl:part name="Body" element="tns:udtCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderHttpGetIn">
+    <wsdl:part name="TradeType" type="s:string" />
+    <wsdl:part name="Counterparty" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupHttpGetIn">
+    <wsdl:part name="TradeType" type="s:string" />
+    <wsdl:part name="Counterparty" type="s:string" />
+    <wsdl:part name="TraderName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntryHttpGetIn">
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Action" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntryHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsHttpGetIn">
+    <wsdl:part name="vCPTY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierHttpGetIn">
+    <wsdl:part name="vCPTY" type="s:string" />
+    <wsdl:part name="vAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetZAINETDataHttpPostIn">
+    <wsdl:part name="ZAINETNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetZAINETDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:udtTabletTradeDetails" />
+  </wsdl:message>
+  <wsdl:message name="TestAuthenticationHttpPostIn" />
+  <wsdl:message name="TestAuthenticationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailHttpPostIn">
+    <wsdl:part name="strFromAddress" type="s:string" />
+    <wsdl:part name="strToAddress" type="s:string" />
+    <wsdl:part name="strSubject" type="s:string" />
+    <wsdl:part name="strBodyText" type="s:string" />
+    <wsdl:part name="lngSystemID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeHttpPostIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="sTrader" type="s:string" />
+    <wsdl:part name="sCreatedBy" type="s:string" />
+    <wsdl:part name="TradeDate" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="Volume" type="s:string" />
+    <wsdl:part name="Price" type="s:string" />
+    <wsdl:part name="BuyOrSell" type="s:string" />
+    <wsdl:part name="CounterParty" type="s:string" />
+    <wsdl:part name="CounterpartyTrader" type="s:string" />
+    <wsdl:part name="Shape" type="s:string" />
+    <wsdl:part name="BespokeShape" type="s:string" />
+    <wsdl:part name="BespokeStartDate" type="s:string" />
+    <wsdl:part name="BespokeEndDate" type="s:string" />
+    <wsdl:part name="cBroker" type="s:string" />
+    <wsdl:part name="bBiLateral" type="s:string" />
+    <wsdl:part name="BiLateralTime" type="s:string" />
+    <wsdl:part name="BiLateralExtension" type="s:string" />
+    <wsdl:part name="bZeroBrokerage" type="s:string" />
+    <wsdl:part name="ZAINETnum" type="s:string" />
+    <wsdl:part name="bTStamp" type="s:string" />
+    <wsdl:part name="Comments" type="s:string" />
+    <wsdl:part name="BackOfficeID" type="s:string" />
+    <wsdl:part name="BackOfficeComments" type="s:string" />
+    <wsdl:part name="cBuyReason" type="s:string" />
+    <wsdl:part name="blIncludeWeekends" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddTabletTradeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeHttpPostIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="sTrader" type="s:string" />
+    <wsdl:part name="sCreatedBy" type="s:string" />
+    <wsdl:part name="TradeDate" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="Volume" type="s:string" />
+    <wsdl:part name="Price" type="s:string" />
+    <wsdl:part name="BuyOrSell" type="s:string" />
+    <wsdl:part name="CounterParty" type="s:string" />
+    <wsdl:part name="CounterpartyTrader" type="s:string" />
+    <wsdl:part name="Shape" type="s:string" />
+    <wsdl:part name="BespokeShape" type="s2:StringArray" />
+    <wsdl:part name="BespokeStartDate" type="s:string" />
+    <wsdl:part name="BespokeEndDate" type="s:string" />
+    <wsdl:part name="cBroker" type="s:string" />
+    <wsdl:part name="bBiLateral" type="s:string" />
+    <wsdl:part name="BiLateralTime" type="s:string" />
+    <wsdl:part name="BiLateralExtension" type="s:string" />
+    <wsdl:part name="bZeroBrokerage" type="s:string" />
+    <wsdl:part name="ZAINETnum" type="s:string" />
+    <wsdl:part name="bTStamp" type="s:string" />
+    <wsdl:part name="Comments" type="s:string" />
+    <wsdl:part name="BackOfficeID" type="s:string" />
+    <wsdl:part name="BackOfficeComments" type="s:string" />
+    <wsdl:part name="cBuyReason" type="s:string" />
+    <wsdl:part name="blIncludeWeekends" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddMultiDayShapeTradeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeHttpPostIn">
+    <wsdl:part name="TradeID" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTableTradeHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormHttpPostIn">
+    <wsdl:part name="List" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="vTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteETradeFormHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpPostIn" />
+  <wsdl:message name="GetUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeHttpPostIn">
+    <wsdl:part name="User" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressHttpPostIn">
+    <wsdl:part name="User" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShapesHttpPostIn" />
+  <wsdl:message name="GetShapesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistHttpPostIn">
+    <wsdl:part name="v_ZainetTnum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TradeExistHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeHttpPostIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpShapeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterpartiesHttpPostIn" />
+  <wsdl:message name="GetCounterpartiesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyHttpPostIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyHttpPostOut">
+    <wsdl:part name="Body" element="tns:udtCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartyHttpPostIn">
+    <wsdl:part name="Shortcut" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpZainetCounterpartyHttpPostOut">
+    <wsdl:part name="Body" element="tns:udtCounterparty" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderHttpPostIn">
+    <wsdl:part name="TradeType" type="s:string" />
+    <wsdl:part name="Counterparty" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LookUpCounterpartyTraderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupHttpPostIn">
+    <wsdl:part name="TradeType" type="s:string" />
+    <wsdl:part name="Counterparty" type="s:string" />
+    <wsdl:part name="TraderName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCounterpartyLookupHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntryHttpPostIn">
+    <wsdl:part name="User" type="s:string" />
+    <wsdl:part name="Action" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddAuditLogEntryHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsHttpPostIn">
+    <wsdl:part name="vCPTY" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NotifierAccountsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierHttpPostIn">
+    <wsdl:part name="vCPTY" type="s:string" />
+    <wsdl:part name="vAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DefaultNotifierHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="eTradeGatewaySoap">
+    <wsdl:operation name="GetZAINETData">
+      <wsdl:input message="tns:GetZAINETDataSoapIn" />
+      <wsdl:output message="tns:GetZAINETDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <wsdl:input message="tns:TestAuthenticationSoapIn" />
+      <wsdl:output message="tns:TestAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailSoapIn" />
+      <wsdl:output message="tns:SendEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <wsdl:input message="tns:AddTabletTradeSoapIn" />
+      <wsdl:output message="tns:AddTabletTradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <wsdl:input message="tns:AddMultiDayShapeTradeSoapIn" />
+      <wsdl:output message="tns:AddMultiDayShapeTradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <wsdl:input message="tns:DeleteTableTradeSoapIn" />
+      <wsdl:output message="tns:DeleteTableTradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <wsdl:input message="tns:DeleteETradeFormSoapIn" />
+      <wsdl:output message="tns:DeleteETradeFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersSoapIn" />
+      <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <wsdl:input message="tns:GetUserTypeSoapIn" />
+      <wsdl:output message="tns:GetUserTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <wsdl:input message="tns:GetEmailAddressSoapIn" />
+      <wsdl:output message="tns:GetEmailAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <wsdl:input message="tns:GetShapesSoapIn" />
+      <wsdl:output message="tns:GetShapesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <wsdl:input message="tns:TradeExistSoapIn" />
+      <wsdl:output message="tns:TradeExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <wsdl:input message="tns:LookUpShapeSoapIn" />
+      <wsdl:output message="tns:LookUpShapeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <wsdl:input message="tns:GetCounterpartiesSoapIn" />
+      <wsdl:output message="tns:GetCounterpartiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <wsdl:input message="tns:LookUpCounterpartySoapIn" />
+      <wsdl:output message="tns:LookUpCounterpartySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <wsdl:input message="tns:LookUpZainetCounterpartySoapIn" />
+      <wsdl:output message="tns:LookUpZainetCounterpartySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <wsdl:input message="tns:LookUpCounterpartyTraderSoapIn" />
+      <wsdl:output message="tns:LookUpCounterpartyTraderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <wsdl:input message="tns:UpdateCounterpartyLookupSoapIn" />
+      <wsdl:output message="tns:UpdateCounterpartyLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <wsdl:input message="tns:AddAuditLogEntrySoapIn" />
+      <wsdl:output message="tns:AddAuditLogEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <wsdl:input message="tns:NotifierAccountsSoapIn" />
+      <wsdl:output message="tns:NotifierAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <wsdl:input message="tns:DefaultNotifierSoapIn" />
+      <wsdl:output message="tns:DefaultNotifierSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="eTradeGatewayHttpGet">
+    <wsdl:operation name="GetZAINETData">
+      <wsdl:input message="tns:GetZAINETDataHttpGetIn" />
+      <wsdl:output message="tns:GetZAINETDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <wsdl:input message="tns:TestAuthenticationHttpGetIn" />
+      <wsdl:output message="tns:TestAuthenticationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailHttpGetIn" />
+      <wsdl:output message="tns:SendEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <wsdl:input message="tns:AddTabletTradeHttpGetIn" />
+      <wsdl:output message="tns:AddTabletTradeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <wsdl:input message="tns:AddMultiDayShapeTradeHttpGetIn" />
+      <wsdl:output message="tns:AddMultiDayShapeTradeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <wsdl:input message="tns:DeleteTableTradeHttpGetIn" />
+      <wsdl:output message="tns:DeleteTableTradeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <wsdl:input message="tns:DeleteETradeFormHttpGetIn" />
+      <wsdl:output message="tns:DeleteETradeFormHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersHttpGetIn" />
+      <wsdl:output message="tns:GetUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <wsdl:input message="tns:GetUserTypeHttpGetIn" />
+      <wsdl:output message="tns:GetUserTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <wsdl:input message="tns:GetEmailAddressHttpGetIn" />
+      <wsdl:output message="tns:GetEmailAddressHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <wsdl:input message="tns:GetShapesHttpGetIn" />
+      <wsdl:output message="tns:GetShapesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <wsdl:input message="tns:TradeExistHttpGetIn" />
+      <wsdl:output message="tns:TradeExistHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <wsdl:input message="tns:LookUpShapeHttpGetIn" />
+      <wsdl:output message="tns:LookUpShapeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <wsdl:input message="tns:GetCounterpartiesHttpGetIn" />
+      <wsdl:output message="tns:GetCounterpartiesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <wsdl:input message="tns:LookUpCounterpartyHttpGetIn" />
+      <wsdl:output message="tns:LookUpCounterpartyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <wsdl:input message="tns:LookUpZainetCounterpartyHttpGetIn" />
+      <wsdl:output message="tns:LookUpZainetCounterpartyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <wsdl:input message="tns:LookUpCounterpartyTraderHttpGetIn" />
+      <wsdl:output message="tns:LookUpCounterpartyTraderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <wsdl:input message="tns:UpdateCounterpartyLookupHttpGetIn" />
+      <wsdl:output message="tns:UpdateCounterpartyLookupHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <wsdl:input message="tns:AddAuditLogEntryHttpGetIn" />
+      <wsdl:output message="tns:AddAuditLogEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <wsdl:input message="tns:NotifierAccountsHttpGetIn" />
+      <wsdl:output message="tns:NotifierAccountsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <wsdl:input message="tns:DefaultNotifierHttpGetIn" />
+      <wsdl:output message="tns:DefaultNotifierHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="eTradeGatewayHttpPost">
+    <wsdl:operation name="GetZAINETData">
+      <wsdl:input message="tns:GetZAINETDataHttpPostIn" />
+      <wsdl:output message="tns:GetZAINETDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <wsdl:input message="tns:TestAuthenticationHttpPostIn" />
+      <wsdl:output message="tns:TestAuthenticationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailHttpPostIn" />
+      <wsdl:output message="tns:SendEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <wsdl:input message="tns:AddTabletTradeHttpPostIn" />
+      <wsdl:output message="tns:AddTabletTradeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <wsdl:input message="tns:AddMultiDayShapeTradeHttpPostIn" />
+      <wsdl:output message="tns:AddMultiDayShapeTradeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <wsdl:input message="tns:DeleteTableTradeHttpPostIn" />
+      <wsdl:output message="tns:DeleteTableTradeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <wsdl:input message="tns:DeleteETradeFormHttpPostIn" />
+      <wsdl:output message="tns:DeleteETradeFormHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersHttpPostIn" />
+      <wsdl:output message="tns:GetUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <wsdl:input message="tns:GetUserTypeHttpPostIn" />
+      <wsdl:output message="tns:GetUserTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <wsdl:input message="tns:GetEmailAddressHttpPostIn" />
+      <wsdl:output message="tns:GetEmailAddressHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <wsdl:input message="tns:GetShapesHttpPostIn" />
+      <wsdl:output message="tns:GetShapesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <wsdl:input message="tns:TradeExistHttpPostIn" />
+      <wsdl:output message="tns:TradeExistHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <wsdl:input message="tns:LookUpShapeHttpPostIn" />
+      <wsdl:output message="tns:LookUpShapeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <wsdl:input message="tns:GetCounterpartiesHttpPostIn" />
+      <wsdl:output message="tns:GetCounterpartiesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <wsdl:input message="tns:LookUpCounterpartyHttpPostIn" />
+      <wsdl:output message="tns:LookUpCounterpartyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <wsdl:input message="tns:LookUpZainetCounterpartyHttpPostIn" />
+      <wsdl:output message="tns:LookUpZainetCounterpartyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <wsdl:input message="tns:LookUpCounterpartyTraderHttpPostIn" />
+      <wsdl:output message="tns:LookUpCounterpartyTraderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <wsdl:input message="tns:UpdateCounterpartyLookupHttpPostIn" />
+      <wsdl:output message="tns:UpdateCounterpartyLookupHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <wsdl:input message="tns:AddAuditLogEntryHttpPostIn" />
+      <wsdl:output message="tns:AddAuditLogEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <wsdl:input message="tns:NotifierAccountsHttpPostIn" />
+      <wsdl:output message="tns:NotifierAccountsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <wsdl:input message="tns:DefaultNotifierHttpPostIn" />
+      <wsdl:output message="tns:DefaultNotifierHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eTradeGatewaySoap" type="tns:eTradeGatewaySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetZAINETData">
+      <soap:operation soapAction="http://drax.power/GetZAINETData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <soap:operation soapAction="http://drax.power/TestAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://drax.power/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <soap:operation soapAction="http://drax.power/AddTabletTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <soap:operation soapAction="http://drax.power/AddMultiDayShapeTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <soap:operation soapAction="http://drax.power/DeleteTableTrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <soap:operation soapAction="http://drax.power/DeleteETradeForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://drax.power/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <soap:operation soapAction="http://drax.power/GetUserType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <soap:operation soapAction="http://drax.power/GetEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <soap:operation soapAction="http://drax.power/GetShapes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <soap:operation soapAction="http://drax.power/TradeExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <soap:operation soapAction="http://drax.power/LookUpShape" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <soap:operation soapAction="http://drax.power/GetCounterparties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <soap:operation soapAction="http://drax.power/LookUpCounterparty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <soap:operation soapAction="http://drax.power/LookUpZainetCounterparty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <soap:operation soapAction="http://drax.power/LookUpCounterpartyTrader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <soap:operation soapAction="http://drax.power/UpdateCounterpartyLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <soap:operation soapAction="http://drax.power/AddAuditLogEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <soap:operation soapAction="http://drax.power/NotifierAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <soap:operation soapAction="http://drax.power/DefaultNotifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eTradeGatewaySoap12" type="tns:eTradeGatewaySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetZAINETData">
+      <soap12:operation soapAction="http://drax.power/GetZAINETData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <soap12:operation soapAction="http://drax.power/TestAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://drax.power/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <soap12:operation soapAction="http://drax.power/AddTabletTrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <soap12:operation soapAction="http://drax.power/AddMultiDayShapeTrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <soap12:operation soapAction="http://drax.power/DeleteTableTrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <soap12:operation soapAction="http://drax.power/DeleteETradeForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://drax.power/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <soap12:operation soapAction="http://drax.power/GetUserType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <soap12:operation soapAction="http://drax.power/GetEmailAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <soap12:operation soapAction="http://drax.power/GetShapes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <soap12:operation soapAction="http://drax.power/TradeExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <soap12:operation soapAction="http://drax.power/LookUpShape" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <soap12:operation soapAction="http://drax.power/GetCounterparties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <soap12:operation soapAction="http://drax.power/LookUpCounterparty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <soap12:operation soapAction="http://drax.power/LookUpZainetCounterparty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <soap12:operation soapAction="http://drax.power/LookUpCounterpartyTrader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <soap12:operation soapAction="http://drax.power/UpdateCounterpartyLookup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <soap12:operation soapAction="http://drax.power/AddAuditLogEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <soap12:operation soapAction="http://drax.power/NotifierAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <soap12:operation soapAction="http://drax.power/DefaultNotifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eTradeGatewayHttpGet" type="tns:eTradeGatewayHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetZAINETData">
+      <http:operation location="/GetZAINETData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <http:operation location="/TestAuthentication" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <http:operation location="/SendEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <http:operation location="/AddTabletTrade" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <http:operation location="/AddMultiDayShapeTrade" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <http:operation location="/DeleteTableTrade" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <http:operation location="/DeleteETradeForm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <http:operation location="/GetUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <http:operation location="/GetUserType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <http:operation location="/GetEmailAddress" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <http:operation location="/GetShapes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <http:operation location="/TradeExist" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <http:operation location="/LookUpShape" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <http:operation location="/GetCounterparties" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <http:operation location="/LookUpCounterparty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <http:operation location="/LookUpZainetCounterparty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <http:operation location="/LookUpCounterpartyTrader" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <http:operation location="/UpdateCounterpartyLookup" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <http:operation location="/AddAuditLogEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <http:operation location="/NotifierAccounts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <http:operation location="/DefaultNotifier" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eTradeGatewayHttpPost" type="tns:eTradeGatewayHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetZAINETData">
+      <http:operation location="/GetZAINETData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestAuthentication">
+      <http:operation location="/TestAuthentication" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <http:operation location="/SendEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTabletTrade">
+      <http:operation location="/AddTabletTrade" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMultiDayShapeTrade">
+      <http:operation location="/AddMultiDayShapeTrade" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTableTrade">
+      <http:operation location="/DeleteTableTrade" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteETradeForm">
+      <http:operation location="/DeleteETradeForm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <http:operation location="/GetUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserType">
+      <http:operation location="/GetUserType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddress">
+      <http:operation location="/GetEmailAddress" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShapes">
+      <http:operation location="/GetShapes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TradeExist">
+      <http:operation location="/TradeExist" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpShape">
+      <http:operation location="/LookUpShape" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterparties">
+      <http:operation location="/GetCounterparties" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterparty">
+      <http:operation location="/LookUpCounterparty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpZainetCounterparty">
+      <http:operation location="/LookUpZainetCounterparty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LookUpCounterpartyTrader">
+      <http:operation location="/LookUpCounterpartyTrader" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCounterpartyLookup">
+      <http:operation location="/UpdateCounterpartyLookup" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAuditLogEntry">
+      <http:operation location="/AddAuditLogEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifierAccounts">
+      <http:operation location="/NotifierAccounts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefaultNotifier">
+      <http:operation location="/DefaultNotifier" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eTradeGateway">
+    <wsdl:port name="eTradeGatewaySoap" binding="tns:eTradeGatewaySoap">
+      <soap:address location="http://dps145/eTradeGateway/eTradeGateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="eTradeGatewaySoap12" binding="tns:eTradeGatewaySoap12">
+      <soap12:address location="http://dps145/eTradeGateway/eTradeGateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="eTradeGatewayHttpGet" binding="tns:eTradeGatewayHttpGet">
+      <http:address location="http://dps145/eTradeGateway/eTradeGateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="eTradeGatewayHttpPost" binding="tns:eTradeGatewayHttpPost">
+      <http:address location="http://dps145/eTradeGateway/eTradeGateway.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

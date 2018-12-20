@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:38603/MarketPricesWebService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Xml" />
+  <xs:complexType name="DPL">
+    <xs:sequence>
+      <xs:element name="correlationIdField" nillable="true" type="xs:string" />
+      <xs:element name="messageDateTimeField" type="xs:dateTime" />
+      <xs:element name="messageIdField" nillable="true" type="xs:string" />
+      <xs:element name="messagePayloadField" nillable="true" type="tns:DPLMessagePayload" />
+      <xs:element name="messageTypeField" nillable="true" type="xs:string" />
+      <xs:element name="messageVersionField" nillable="true" type="xs:string" />
+      <xs:element name="originatingApplicationField" nillable="true" type="xs:string" />
+      <xs:element name="originatingOrgField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DPL" nillable="true" type="tns:DPL" />
+  <xs:complexType name="DPLMessagePayload">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Xml" name="anyField" nillable="true" type="q1:ArrayOfXmlElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DPLMessagePayload" nillable="true" type="tns:DPLMessagePayload" />
+</xs:schema>
