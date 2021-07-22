@@ -9,7 +9,7 @@ namespace ConfigTest
         /// Gets value from config file.
         /// </summary>
         /// <param name="key">The key of the desired config value.</param>
-        /// <returns>String value if the setting exists, null otherwise.</returns>
+        /// <returns><see cref="string"/> value if the setting exists, null otherwise.</returns>
         public static string GetSetting(string key)
         {
             return ConfigurationManager.AppSettings[key];
@@ -20,8 +20,8 @@ namespace ConfigTest
         /// </summary>
         /// <typeparam name="T">The desired type of the returned value.</typeparam>
         /// <param name="key">The key of the desired config value.</param>
-        /// <returns>A value of type <typeparamref name="T"/> if the setting exists.</returns>
-        /// <exception cref="Exception">description</exception>
+        /// <returns>A value of type <typeparamref name="T"/> if the setting exists and can be converted.</returns>
+        /// <exception cref="Exception">Thrown when the setting does not exist or can not be converted.</exception>
         public static T GetSetting<T>(string key) where T : IConvertible
         {
             var configValue = ConfigurationManager.AppSettings[key];
@@ -35,9 +35,10 @@ namespace ConfigTest
         /// <param name="key">The key of the desired config value.</param>
         /// <param name="defaultValue">The value to return if the setting does not exist.</param>
         /// <returns>
-        ///     A value of type <typeparamref name="T"/> if the setting exists and can be converted into a <typeparamref name="T"/>,
-        ///     <paramref name="defaultValue"/> if it doesn't exist or can't be converted.
+        ///     A value of type <typeparamref name="T"/> if the setting exists and can be converted,
+        ///     <paramref name="defaultValue"/> if it does not exist.
         /// </returns> 
+        /// <exception cref="Exception">Thrown when the setting can not be converted.</exception>
         public static T GetSetting<T>(string key, T defaultValue) where T : IConvertible
         {
             var configValue = ConfigurationManager.AppSettings[key];

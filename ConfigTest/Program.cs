@@ -32,11 +32,18 @@ namespace ConfigTest
             var s3 = ConfigHelper.GetSetting<string>("MissingValue");
 
             // throws invalid setting exception
-            var i3 = ConfigHelper.GetSetting<int>("InvalidValue");          
-            var d3 = ConfigHelper.GetSetting<decimal>("InvalidValue");      
-            var f3 = ConfigHelper.GetSetting<float>("InvalidValue");        
-            var dt3 = ConfigHelper.GetSetting<DateTime>("InvalidValue");    
-            var b3 = ConfigHelper.GetSetting<bool>("InvalidValue");         
+            var i3 = ConfigHelper.GetSetting<int>("InvalidValue");
+            var d3 = ConfigHelper.GetSetting<decimal>("InvalidValue");
+            var f3 = ConfigHelper.GetSetting<float>("InvalidValue");
+            var dt3 = ConfigHelper.GetSetting<DateTime>("InvalidValue");
+            var b3 = ConfigHelper.GetSetting<bool>("InvalidValue");
+
+            // throws invalid setting exception
+            var i4 = ConfigHelper.GetSetting("InvalidValue", 999);
+            var d4 = ConfigHelper.GetSetting("InvalidValue", 9.99m);
+            var f4 = ConfigHelper.GetSetting("InvalidValue", 9.99f);
+            var dt4 = ConfigHelper.GetSetting("InvalidValue", new DateTime(2018, 1, 1));
+            var b4 = ConfigHelper.GetSetting("InvalidValue", true);
         }
     }
 }
