@@ -19,6 +19,7 @@ namespace ConfigTest
             var f1 = ConfigHelper.GetSetting<float>("FloatValue");
             var dt1 = ConfigHelper.GetSetting<DateTime>("DateTimeValue");
             var b1 = ConfigHelper.GetSetting<bool>("BoolValue");
+            var e1 = ConfigHelper.GetSetting<MyEnum>("MyEnum");
 
             // returns default value if the setting does not exist
             var s2 = ConfigHelper.GetSetting("MissingValue", "DefaultValue");
@@ -27,6 +28,7 @@ namespace ConfigTest
             var f2 = ConfigHelper.GetSetting("MissingValue", 9.99f);
             var dt2 = ConfigHelper.GetSetting("MissingValue", new DateTime(2018, 1, 1));
             var b2 = ConfigHelper.GetSetting("MissingValue", true);
+            var e2 = ConfigHelper.GetSetting<MyEnum>("MissingValue", MyEnum.Default);
 
             // throws not found exception
             var s3 = ConfigHelper.GetSetting<string>("MissingValue");
@@ -37,6 +39,7 @@ namespace ConfigTest
             var f3 = ConfigHelper.GetSetting<float>("InvalidValue");
             var dt3 = ConfigHelper.GetSetting<DateTime>("InvalidValue");
             var b3 = ConfigHelper.GetSetting<bool>("InvalidValue");
+            var e3 = ConfigHelper.GetSetting<MyEnum>("InvalidValue");
 
             // throws invalid setting exception
             var i4 = ConfigHelper.GetSetting("InvalidValue", 999);
@@ -44,6 +47,7 @@ namespace ConfigTest
             var f4 = ConfigHelper.GetSetting("InvalidValue", 9.99f);
             var dt4 = ConfigHelper.GetSetting("InvalidValue", new DateTime(2018, 1, 1));
             var b4 = ConfigHelper.GetSetting("InvalidValue", true);
+            var e4 = ConfigHelper.GetSetting<MyEnum>("InvalidValue", MyEnum.Default);
         }
     }
 }

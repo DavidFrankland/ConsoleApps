@@ -45,15 +45,24 @@ namespace ConfigTest
             return configValue != null ? ConvertValue<T>(key, configValue) : defaultValue;
         }
 
-        private static T ConvertValue<T>(string key, string value) 
+        private static T ConvertValue<T>(string key, string value)
         {
+            var type = typeof(T);
+
             try
             {
-                return (T)Convert.ChangeType(value, typeof(T));
+                if (type.IsEnum)
+                {
+                    return (T)Enum.Parse(type, value, true);
+                }
+                else
+                {
+                    return (T)Convert.ChangeType(value, type);
+                }
             }
             catch (Exception ex)
             {
-                var errorMessage = $"Invalid {typeof(T)} config setting: '{key}' value: '{value}'";
+                var errorMessage = $"Invalid {type} config setting: '{key}' value: '{value}'";
                 throw new Exception(errorMessage, ex);
             }
         }
