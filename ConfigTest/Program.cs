@@ -28,12 +28,12 @@ namespace ConfigTest
             var f2 = ConfigHelper.GetSetting("MissingValue", 9.99f);
             var dt2 = ConfigHelper.GetSetting("MissingValue", new DateTime(2018, 1, 1));
             var b2 = ConfigHelper.GetSetting("MissingValue", true);
-            var e2 = ConfigHelper.GetSetting<MyEnum>("MissingValue", MyEnum.Default);
+            var e2 = ConfigHelper.GetSetting("MissingValue", MyEnum.Default);
 
-            // throws not found exception
+            // throws not found exception if the setting does not exist and no default value specified
             var s3 = ConfigHelper.GetSetting<string>("MissingValue");
 
-            // throws invalid setting exception
+            // throws invalid setting exception if the value can not be converted
             var i3 = ConfigHelper.GetSetting<int>("InvalidValue");
             var d3 = ConfigHelper.GetSetting<decimal>("InvalidValue");
             var f3 = ConfigHelper.GetSetting<float>("InvalidValue");
@@ -41,13 +41,13 @@ namespace ConfigTest
             var b3 = ConfigHelper.GetSetting<bool>("InvalidValue");
             var e3 = ConfigHelper.GetSetting<MyEnum>("InvalidValue");
 
-            // throws invalid setting exception
+            // throws invalid setting exception if the value can not be converted, even if a default value is specified
             var i4 = ConfigHelper.GetSetting("InvalidValue", 999);
             var d4 = ConfigHelper.GetSetting("InvalidValue", 9.99m);
             var f4 = ConfigHelper.GetSetting("InvalidValue", 9.99f);
             var dt4 = ConfigHelper.GetSetting("InvalidValue", new DateTime(2018, 1, 1));
             var b4 = ConfigHelper.GetSetting("InvalidValue", true);
-            var e4 = ConfigHelper.GetSetting<MyEnum>("InvalidValue", MyEnum.Default);
+            var e4 = ConfigHelper.GetSetting("InvalidValue", MyEnum.Default);
         }
     }
 }
